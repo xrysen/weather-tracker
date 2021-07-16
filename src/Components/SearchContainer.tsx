@@ -1,10 +1,13 @@
 import WeatherCard from "./WeatherCard";
 import { useState } from "react";
 import { favouriteCities, Weather } from "../globals";
+import ConfirmModal from "./ConfirmModal";
 
 const SearchContainer = () => {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState<Weather>();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isFav, setIsFav] = useState(false);
 
   const handleInput = (e: any) => {
     setCity(e.target.value);
@@ -13,7 +16,19 @@ const SearchContainer = () => {
   const addFavourite = (name: string) => {
     if (!favouriteCities.includes(name)) {
       favouriteCities.push(name);
+      handleModal(true);
+    } else {
+      handleModal(false);
     }
+  }
+
+  const handleModal = (success: boolean) => {
+    if (success) {
+      setIsFav(true);
+    } else {
+      setIsFav(false);
+    }
+    setModalOpen(true);
   }
 
   const handleSubmit = (e: any) => {
@@ -30,6 +45,7 @@ const SearchContainer = () => {
 
   return (
     <div className="search-container">
+      {modalOpen ? <ConfirmModal success = {isFav}  onClick = {()=> setModalOpen(false)} /> : ""}
       <form onSubmit={handleSubmit}>
         <input
           onChange={(e: any) => handleInput(e)}

@@ -5,13 +5,17 @@ import WeatherCard from "./WeatherCard";
 const WeatherFavourites = () => {
   const [cities, setCities] = useState(favouriteCities);
   const [weather, setWeather] = useState([
-    { weather: [ { main: "" }], name: "", main: { temp: "", temp_max: "", temp_min: "", humidity: "" } },
+    {
+      weather: [{ main: "" }],
+      name: "",
+      main: { temp: "", temp_max: "", temp_min: "", humidity: "" },
+    },
   ]);
 
   useEffect(() => {
     setWeather([
       {
-        weather: [ {main: ""}],
+        weather: [{ main: "" }],
         name: "",
         main: { temp: "", temp_max: "", temp_min: "", humidity: "" },
       },
@@ -40,25 +44,33 @@ const WeatherFavourites = () => {
     }
   };
 
-  return (
-    <div className="weather-fav-container">
-      {weather.map((city) => {
-        return (
+  if (cities.length) {
+    return (
+      <div className="weather-fav-container">
+        {weather.map((city) => {
+          return (
             <WeatherCard
-              key = {city.name}
-              current = {city?.weather[0].main}
-              onClick = {()=> removeFavourite(city.name)}
-              fav = {true}
+              key={city.name}
+              current={city?.weather[0].main}
+              onClick={() => removeFavourite(city.name)}
+              fav={true}
               city={city?.name}
               temp={city?.main.temp}
               maxTemp={city?.main.temp_max}
               minTemp={city?.main.temp_min}
               humidity={city?.main.humidity}
             />
-        );
-      })}
-    </div>
-  );
+          );
+        })}
+      </div>
+    );
+  } else {
+    return (
+      <div style = {{ padding: "0px 20px"}} className="weather-card-container">
+        <h1>Go add some favourites!</h1>
+      </div>
+    );
+  }
 };
 
 export default WeatherFavourites;

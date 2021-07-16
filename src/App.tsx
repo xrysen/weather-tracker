@@ -1,11 +1,13 @@
-import React from 'react';
-import './App.css';
-import WeatherCard from './Components/WeatherCard';
+import React from "react";
+import "./App.css";
+import WeatherCard from "./Components/WeatherCard";
 
 function App() {
   return (
     <div>
-      <WeatherCard />
+      <div className="weather-search-container">
+        <WeatherCard />
+      </div>
     </div>
   );
 }

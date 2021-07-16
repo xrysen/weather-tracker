@@ -1,8 +1,8 @@
 .weather-card-container {
   display: flex;
   flex-direction: column;
-  max-width: 20.75em;
-  min-height: 10.75em;
+  min-width: 250px;
+  min-height: 100px;
   overflow: hidden;
   border-radius: .5em;
   background-color: white;

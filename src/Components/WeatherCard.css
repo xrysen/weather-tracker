@@ -24,11 +24,9 @@
 }
 
 .current-temp {
-  font-size: 60px;
+  font-size: 45px;
 }
 
 .weather-card-high-low {
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
+  
 }

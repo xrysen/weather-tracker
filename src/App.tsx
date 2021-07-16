@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import WeatherCard from "./Components/WeatherCard";
+import SearchContainer from "./Components/SearchContainer";
 
 function App() {
   return (
     <div>
       <div className="weather-search-container">
-        <WeatherCard />
+        <SearchContainer />
       </div>
     </div>
   );

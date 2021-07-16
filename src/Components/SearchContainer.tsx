@@ -34,7 +34,7 @@ const SearchContainer = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=af9d6c4e7a164853ec010647718ce37a&units=metric`,
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
       {
         mode: "cors",
       }

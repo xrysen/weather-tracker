@@ -1,17 +1,17 @@
 import { favouriteCities } from "../globals";
 import { useState, useEffect } from "react";
 import WeatherCard from "./WeatherCard";
-import RemoveFave from "./RemoveFave";
 
 const WeatherFavourites = () => {
   const [cities, setCities] = useState(favouriteCities);
   const [weather, setWeather] = useState([
-    { name: "", main: { temp: "", temp_max: "", temp_min: "", humidity: "" } },
+    { weather: [ { main: "" }], name: "", main: { temp: "", temp_max: "", temp_min: "", humidity: "" } },
   ]);
 
   useEffect(() => {
     setWeather([
       {
+        weather: [ {main: ""}],
         name: "",
         main: { temp: "", temp_max: "", temp_min: "", humidity: "" },
       },
@@ -45,6 +45,8 @@ const WeatherFavourites = () => {
       {weather.map((city) => {
         return (
             <WeatherCard
+              key = {city.name}
+              current = {city?.weather[0].main}
               onClick = {()=> removeFavourite(city.name)}
               fav = {true}
               city={city?.name}

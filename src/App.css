@@ -38,6 +38,7 @@ input[type="text"] {
 .weather-fav-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 input[type="submit"],

@@ -1,4 +1,4 @@
-const favouriteCities: string[] = ["Duncan", "Chemainus"];
+const favouriteCities: string[] = [];
 
 export interface Weather {
   weather: [

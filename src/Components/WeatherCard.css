@@ -6,12 +6,14 @@
   overflow: hidden;
   border-radius: .5em;
   background-color: white;
+  margin-right: 20px;
 }
 
 .weather-card-content {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding: 0 10px;
 }
 
 .card-title {
@@ -25,8 +27,4 @@
 
 .current-temp {
   font-size: 45px;
-}
-
-.weather-card-high-low {
-  
 }

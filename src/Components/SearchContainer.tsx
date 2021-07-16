@@ -1,21 +1,6 @@
 import WeatherCard from "./WeatherCard";
 import { useState } from "react";
-import { favouriteCities } from "../globals";
-
-interface Weather {
-  weather: [
-    {
-      main: string;
-    }
-  ];
-  main: {
-    temp: number;
-    temp_max: number;
-    temp_min: number;
-    humidity: number;
-  };
-  name: string;
-}
+import { favouriteCities, Weather } from "../globals";
 
 const SearchContainer = () => {
   const [city, setCity] = useState("");
@@ -28,9 +13,7 @@ const SearchContainer = () => {
   const addFavourite = (name: string) => {
     if (!favouriteCities.includes(name)) {
       favouriteCities.push(name);
-      console.log("Added");
     }
-    console.log("Already exists");
   }
 
   const handleSubmit = (e: any) => {

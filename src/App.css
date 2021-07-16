@@ -35,6 +35,11 @@ input[type="text"] {
   padding-bottom: 30px;
 }
 
+.weather-fav-container {
+  display: flex;
+  flex-direction: row;
+}
+
 input[type="submit"],
 button {
   padding: 8px 12px;

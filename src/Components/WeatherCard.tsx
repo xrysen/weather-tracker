@@ -1,3 +1,4 @@
+import RemoveFave from "./RemoveFave";
 import "./WeatherCard.css";
 
 const WeatherCard = (props: any) => {
@@ -18,6 +19,7 @@ const WeatherCard = (props: any) => {
             </ul>
           </div>
         </div>
+          {props.fav ? <RemoveFave onClick = {props.onClick} /> : "" }
       </div>
     );
 

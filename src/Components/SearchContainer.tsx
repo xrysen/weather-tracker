@@ -1,5 +1,6 @@
 import WeatherCard from "./WeatherCard";
 import { useState } from "react";
+import { favouriteCities } from "../globals";
 
 interface Weather {
   weather: [
@@ -23,6 +24,14 @@ const SearchContainer = () => {
   const handleInput = (e: any) => {
     setCity(e.target.value);
   };
+
+  const addFavourite = (name: string) => {
+    if (!favouriteCities.includes(name)) {
+      favouriteCities.push(name);
+      console.log("Added");
+    }
+    console.log("Already exists");
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -50,14 +59,14 @@ const SearchContainer = () => {
       {weather ? (
         <div>
         <WeatherCard
-          current = {weather.weather[0].main}
+          current = {weather?.weather[0].main}
           city={weather?.name}
           temp={weather?.main.temp}
           maxTemp={weather?.main.temp_max}
           minTemp={weather?.main.temp_min}
           humidity={weather?.main.humidity}
         />
-      <button>Add To Favourites</button>
+      <button onClick = {()=> addFavourite(city)}>Add To Favourites</button>
       </div>
       ) : (
         <div style = {{ padding: "0 10px"}}>
